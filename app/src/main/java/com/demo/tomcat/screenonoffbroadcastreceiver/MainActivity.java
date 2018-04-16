@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity
     AlarmManager alarmManager = null;
     PendingIntent alarmPI = null;
     NotificationManager manager = null;
-    private final long USER_PEROID = 30;
+    private final long USER_PEROID = 20*1000;
     private int alarmCount = 0;
 
     private LocalReceiver ScreenOnOffReceiver = new LocalReceiver();
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            Log.w(TAG, "onReceive(), action: " + action);
+            Log.e(TAG, "onReceive(), action: " + action);
 
             if (Intent.ACTION_SCREEN_OFF.equalsIgnoreCase(action))
             {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity
             }
             else if (ACTION_ALARM_SET.equalsIgnoreCase(action))
             {
-                Log.d(TAG, "ACTION_ALARM_SET.");
+                Log.d(TAG, " alarmCount: " + alarmCount);
                 if (alarmCount < 5) {
                     notificationDialog("BackGround running");
                     setAlarm();
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity
             }
             else if (ACTION_ALARM_CANCEL.equalsIgnoreCase(action))
             {
-                Log.d(TAG, "ACTION_ALARM_CANCEL.");
+                //Log.d(TAG, "ACTION_ALARM_CANCEL.");
                 cancelAlarm();
             }
 
@@ -107,6 +107,12 @@ public class MainActivity extends AppCompatActivity
         initView();
         initControl();
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.w(TAG, "onStop(), ");
     }
 
     @Override

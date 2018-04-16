@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="left|start"
         android:text="@string/press_power_button_to_turn_on_off_screen_and_see_log_message_in_android_monitor"
