@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ScreenOnOffBroadcastReceiver</string>
+    <string name="press_power_button_to_turn_on_off_screen_and_see_log_message_in_android_monitor">Press power button to turn on / off screen and see log message in android monitor.</string>
+</resources>
